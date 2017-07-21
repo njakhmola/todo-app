@@ -1,0 +1,39 @@
+<Doctype! html>
+<html lang=en ng-app="todo">
+
+<head>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+	<style>
+	p{
+		border:1px solid red;
+	}
+	</style>
+</head>
+
+<body>
+
+	
+	<div ng-controller="mainController">
+		<input type="text" ng-model="query" placeholder="search...">
+		<input type="text" ng-model="user.title">
+		<input type="text" ng-model="user.details">
+		<button ng-click="addtodo(user)">
+
+			Add
+		</button>
+		<h2>todo</h2>
+		<ul>
+			<li ng-repeat="td in todo | filter:query">
+				<h2>{{ td.title }}</h2>
+				<p>{{ td.details }}</p>
+				<button ng-click="deletetodo(todo)">
+					Delete
+				</button> 
+			</li>
+		</ul>
+	</div>
+   
+</body>
+
+</html>
